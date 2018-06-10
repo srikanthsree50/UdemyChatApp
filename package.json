@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "SET \"NODE_ENV=test\" && mocha server/**/*.test.js --timeout=3000"
   },
   "engines": {
     "node": "8.11.1"
@@ -14,7 +14,11 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
-    "nodemon": "^1.17.5",
     "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "expect": "^23.1.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.17.5"
   }
 }
