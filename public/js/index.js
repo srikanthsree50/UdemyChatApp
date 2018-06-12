@@ -12,16 +12,17 @@ console.log('DisConnected to Server.... ');
 socket.on('newMessage',function(message){
 console.log('New Message from client to server',message);
 var li = jQuery('<li></li>');
-li.text(`${message.from}: ${message.text}`);
+li.text(`${message.from} : ${message.createdAt} : ${message.text} `);
 
 jQuery('#messages').append(li)
 });
 
 socket.on('newLocationMessage',function(message){
     var li = jQuery('<li></li>');
-var a = jQuery('<a target = "_blank">My Current Location</a>');
+var a = jQuery('<a target = "_blank" style="text-decoration:none">MyCurrentLocation</a>');
 
-li.text(`${message.from}:`);
+
+li.text(` ${message.from} : ${message.createdAt}: `);
 a.attr('href',message.url);
 li.append(a);
 jQuery('#messages').append(li);
